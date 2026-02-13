@@ -1,0 +1,250 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffeef2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    justify-content: space-between; 
+    padding: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+h1 {
+    color: #d63384;
+    font-size: clamp(1.5rem, 8vw, 2.5rem); 
+    margin: 20px 0;
+}
+
+p {
+    text-align: left;
+}
+
+.images {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img2 {
+    max-width: 100%; 
+    width: 400px;    
+    height: auto;
+    border-radius: 20px; 
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    padding-bottom: 30px; 
+}
+
+.btn-placeholder {
+    width: 150px; 
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    width: 100%; 
+}
+
+#yes {
+    background-color: #ff4d6d;
+    color: white;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+#no {
+    background-color: #adb5bd;
+    color: white;
+    z-index: 1;
+    position: relative; 
+    width: 150px !important; 
+    transition: left 0.2s ease, top 0.2s ease;
+}
+
+.pdiv {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    flex-grow: 1; 
+}
+
+.presents-link {
+    display: inline-block;
+    background-color: #ff4d6d;
+    color: white !important; 
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: transform 0.2s, background-color 0.2s;
+    cursor: pointer;
+    max-width: 100%; /* Impedisce la fuoriuscita dai margini */
+}
+
+.card_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 20px;
+}
+
+.card {
+    width: 250px; 
+    height: 350px;
+    perspective: 1000px; 
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; 
+    border: 2px solid #d63384;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.card-front {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.label-obliquo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(-45deg); 
+    white-space: nowrap;
+    opacity: 0.8;
+}
+
+.card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 20px; 
+}
+
+.card-back h2 {
+    margin: 0 0 15px 0; 
+    height: 40px;       
+    display: flex;
+    align-items: center; 
+    color: #d63384;
+    font-size: 1.2rem;
+}
+
+.card-back img {
+    width: 100%;
+    height: 220px;      
+    object-fit: cover;  
+    border-radius: 15px;
+    margin-top: auto;   
+}
+
+@media (max-width: 829px) {
+    .card_container {
+        justify-content: center;
+        gap: 30px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto; 
+    }
+    
+    .container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .card {
+        width: 150px; 
+        height: 250px;
+    }
+
+    .card-back img {
+        height: 140px; 
+    }
+
+    .label-obliquo {
+        font-size: 1.4rem;
+    }
+
+    .buttons {
+        flex-direction: row; 
+        gap: 10px;
+    }
+
+    .btn-placeholder {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column; 
+    }
+}
